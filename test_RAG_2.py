@@ -40,7 +40,7 @@ def setup_vectorstore():
     docs = [Document(page_content=row["text"], metadata={"source": row["source"]}) for _, row in full_df.iterrows()]
 
     embeddings = OpenAIEmbeddings(openai_api_key=openai_key)
-    vectorstore = Chroma.from_documents(docs, embeddings, persist_directory="chroma_db")
+    vectorstore = Chroma.from_documents(docs, embeddings)  #changed line here
     return vectorstore
 
 if st.button("Submit") and query:

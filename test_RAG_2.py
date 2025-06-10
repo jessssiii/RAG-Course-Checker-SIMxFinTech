@@ -5,13 +5,13 @@ from langchain.vectorstores import Chroma
 from langchain.chains import RetrievalQA
 from langchain_openai import OpenAIEmbeddings, OpenAI
 import os
-
+    
 # Load OpenAI key securely
 if "openai" in st.secrets and "api_key" in st.secrets["openai"]:
     openai_key = st.secrets["openai"]["api_key"]
 else:
-    st.error("\u274c OpenAI API key not found. Set it under 'Secrets' in Streamlit Cloud.")
-    st.stop()
+    st.error("❌ OpenAI API key not found. Set it under 'Secrets' in Streamlit Cloud.")
+    st.stop()    
 
 # Streamlit UI setup
 st.set_page_config(page_title="SIM/FinTech RAG Course Checker")
